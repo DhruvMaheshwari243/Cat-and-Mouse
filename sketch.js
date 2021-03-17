@@ -30,14 +30,19 @@ function setup(){
 
 function draw() {
     background(255);
-    if((cat.x - mouse.x)< (cat.width / 2+mouse.width / 2)){
-        cat.velocityX = 0;
 
+    var a = cat.x - mouse.x;
+    var b = (cat.width/2-mouse.witdth)/2;
+
+    if(a < b){
+        console.log("true");
+        cat.velocotyX = 0;
+        cat.x = 200;
         cat.addAnimation("cat stopping", cat_stop_animation);
-        cat.changeAnimation("cat stopping", cat_stop_animation);
 
-        mouse.addAnimation("mouse stopping", mouse_stop_animation);
-    mouse.changeAnimation("mouse stopping", mouse_stop_animation);
+        mouse.addAnimation("mouse stopping", cat_stop_animation);
+        mouse.changeAnimation("mouse stopping", mouse_stop_animation);
+
     }
 
     console.log(mouse.x + "mouse");
